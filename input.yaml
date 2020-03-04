@@ -1,0 +1,12 @@
+---
+- name: conditional Playbook
+  hosts: all
+  become: true
+  become_method: sudo
+  connection: ssh
+  ignore_errors: false
+  task: 
+    - name: take input
+      package:
+        name: "{{package}}"
+        state: latest
